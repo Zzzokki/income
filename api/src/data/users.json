@@ -1,0 +1,10 @@
+[
+  { "email": "d", "password": "d" },
+  { "email": "user1", "password": "password" },
+  { "email": "karaoke1", "password": "Karaoke@1234" },
+  {
+    "id": "fdd636fd-acd5-46d3-a0a6-5f93e87ea40a",
+    "email": "test",
+    "password": "test"
+  }
+]

@@ -1,10 +1,1 @@
-[
-  { "email": "d", "password": "d" },
-  { "email": "user1", "password": "password" },
-  { "email": "karaoke1", "password": "Karaoke@1234" },
-  {
-    "id": "fdd636fd-acd5-46d3-a0a6-5f93e87ea40a",
-    "email": "test",
-    "password": "test"
-  }
-]
+[{"id":"a10ee3d9-9961-4393-a871-4ecc1efede6d","email":"test-1","password":"test-1"},{"id":"b222e6cb-d01c-40be-b763-5c166b80fc31","email":"test-2","password":"test-2"}]

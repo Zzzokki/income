@@ -37,7 +37,7 @@ app.post("/sign-in", async (req, res) => {
     });
   }
 
-  const token = jwt.sign({ email }, "secret-key", { expiresIn: "1h" });
+  const token = jwt.sign({ email }, "alkdgjkladjg", { expiresIn: "1h" });
 
   res.json({
     token,
@@ -76,6 +76,47 @@ app.post("/sign-up", async (req, res) => {
   });
 });
 
+app.post("/records", async (req, res) => {
+  const { authorization } = req.headers;
+
+  if (!authorization) {
+    return res.status(401).json({
+      message: "Unauthorized",
+    });
+  }
+
+  try {
+    const payload = jwt.verify(authorization, "alkdgjkladjg");
+
+    const { email } = payload;
+
+    const { category, amount, type } = req.body;
+
+    const filePath = "src/data/records.json";
+
+    const recordsRaw = await fs.readFile(filePath, "utf8");
+
+    const records = JSON.parse(recordsRaw);
+
+    records.push({
+      type,
+      category,
+      amount,
+      userEmail: email,
+    });
+
+    await fs.writeFile(filePath, JSON.stringify(records));
+
+    res.json({
+      message: "Record created",
+    });
+  } catch (error) {
+    return res.status(401).json({
+      message: "Unauthorized",
+    });
+  }
+});
+
 app.get("/users", async (req, res) => {
   const filePath = "src/data/users.json";
 
@@ -86,6 +127,38 @@ app.get("/users", async (req, res) => {
   res.json({
     users,
   });
+});
+
+app.get("/records", async (req, res) => {
+  const { authorization } = req.headers;
+
+  if (!authorization) {
+    return res.status(401).json({
+      message: "Unauthorized",
+    });
+  }
+
+  try {
+    const payload = jwt.verify(authorization, "alkdgjkladjg");
+
+    const { email } = payload;
+
+    const filePath = "src/data/records.json";
+
+    const recordsRaw = await fs.readFile(filePath, "utf8");
+
+    const records = JSON.parse(recordsRaw);
+
+    const usersRecords = records.filter((record) => record.userEmail === email);
+
+    res.json({
+      records: usersRecords,
+    });
+  } catch (error) {
+    return res.status(401).json({
+      message: "Unauthorized",
+    });
+  }
 });
 
 const port = 3001;

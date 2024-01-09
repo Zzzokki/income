@@ -1,1 +1,14 @@
-[{"type":"income","category":"test-category","amount":1000,"userEmail":"test-1"},{"type":"income","category":"test-category","amount":1000,"userEmail":"test-2"}]
+[
+  {
+    "type": "income",
+    "category": "test-category",
+    "amount": 1000,
+    "userEmail": "test-1"
+  },
+  {
+    "type": "income",
+    "category": "test-category",
+    "amount": 1000,
+    "userEmail": "test-2"
+  }
+]

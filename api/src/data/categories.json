@@ -1,6 +1,1 @@
-[
-  {
-    "name": "John",
-    "userEmail": "test-2"
-  }
-]
+[{"name":"John","userEmail":"test-2"},{"name":"category-1","userEmail":"test-1"}]

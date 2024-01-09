@@ -1,35 +1,47 @@
 "use client";
 
-import { useAuth } from "@/components/providers/AuthProvider";
-import { Container, Stack, Typography } from "@mui/material";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { Card, CardContent, Grid, Stack } from "@mui/material";
 
 export default function Page() {
-  const router = useRouter();
-
-  const { isLoggedIn } = useAuth();
-
-  useEffect(() => {
-    if (!isLoggedIn) router.push("/sign-in");
-  }, [isLoggedIn]);
-
-  if (!isLoggedIn) return null;
-
   return (
-    <Stack height="100vh" bgcolor="#f3f4f6">
-      <Stack height={64} bgcolor="#fff">
-        <Container></Container>
-      </Stack>
+    <Stack py={4}>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={4}>
+          <Card variant="outlined" sx={{ borderRadius: 18 }}>
+            <CardContent></CardContent>
+          </Card>
+        </Grid>
 
-      <Container>
-        <Stack direction="flex">
-          <Stack width={300}>
-            <Card variant="outlined"></Card>
-          </Stack>
-          <Stack flex={1}></Stack>
-        </Stack>
-      </Container>
+        <Grid item xs={12} md={4}>
+          <Card variant="outlined">
+            <CardContent></CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12} md={4}>
+          <Card variant="outlined">
+            <CardContent></CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+          <Card variant="outlined">
+            <CardContent></CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+          <Card variant="outlined">
+            <CardContent></CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Card variant="outlined">
+            <CardContent></CardContent>
+          </Card>
+        </Grid>
+      </Grid>
     </Stack>
   );
 }

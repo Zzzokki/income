@@ -74,9 +74,7 @@ export const AuthProvider = ({ children }) => {
 
     const token = localStorage.getItem("token");
 
-    if (token) {
-      setIsLoggedIn(true);
-    }
+    if (token) setIsLoggedIn(true);
 
     setIsReady(true);
   }, []);
